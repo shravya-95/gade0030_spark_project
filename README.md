@@ -1,9 +1,9 @@
-# Project 3 – Spark Deliverables 3
-Analysis of Novel Coronavirus strains |
+# Analysis of Novel Coronavirus strains
 |
-
-| Krishna Shravya Gade | | CSci 5751 |
-| --- | --- | --- |
+|
+| Krishna Shravya Gade | CSci 5751 |
+|
+|
 
 # Contents
 
