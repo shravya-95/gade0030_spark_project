@@ -1,8 +1,3 @@
-![](RackMultipart20200507-4-1vdv1lb_html_a2c167b6622e7d3b.gif)
-
-| ![](RackMultipart20200507-4-1vdv1lb_html_e7dd98deeb785399.jpg) |
-| --- |
-|
 # Project 3 – Spark Deliverables 3
 Analysis of Novel Coronavirus strains |
 |
