@@ -128,30 +128,30 @@ Some common validations were done on both the datasets:
 
 # III Analysis
 
-1.
-## Countries contributing strains to the dataset
+
+## 1. Countries contributing strains to the dataset
 
 The initial idea was to identify the specific virology labs contributing the most but due to inconsistencies in the &quot;_originating lab_&quot; field in the strains data, the study was pivoted towards countries.
 
-  a.
-### Methods
+  
+### a. Methods
 
 The processed strains data was categorized into countries that contributed the strains to the data set. This was done by running a group by query.
 
-  b.
-### Analysis
+  
+### b. Analysis
 
 Below is the bar graph plot for the top 20 countries that contributed the most strains. United Kingdom, United States of America and Australia were the top three contributing countries.
 
 ![](RackMultipart20200507-4-1vdv1lb_html_47fa50cc9cd86ab.png)
 
-  c.
-### Result
+  
+### c. Result
 
 The potential conclusion that can be drawn from the above visualization is that UK, USA and Australia are the countries researching to find a vaccine most extensively compared to other countries. The dip in the bar chart shows that USA and UK are leading substantially in comparison to other countries in terms of this research.
 
-2.
-## Mutations vs case counts
+
+## 2. Mutations vs case counts
 
 The motivation behind this analysis was to test the hypothesis if the confirmed cases in the country were correlated with the strains present in the country.
 
@@ -176,9 +176,7 @@ The motivation behind this analysis was to test the hypothesis if the confirmed 
 
 - The weak correlation signifies the lack of any relationship between strains contributed by the country and the number of infections
 - This could be due to various other factors such as lack of research investment by the governments of the countries, private research not publishing the genomes found or not enough tests being done and published to show real counts
-- Only the strains that have high coverage
-# 1
- were considered in the dataset and this could have contributed to the lack of enough data to establish a relationship
+- Only the strains that have high coverage were considered in the dataset and this could have contributed to the lack of enough data to establish a relationship
 
 
 ## 3. Clustering strains
