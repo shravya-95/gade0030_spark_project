@@ -5,8 +5,6 @@ Analysis of Novel Coronavirus strains |
 | Krishna Shravya Gade | | CSci 5751 |
 | --- | --- | --- |
 
- |
-
 # Contents
 
 [I. Introduction ](#_Toc39690119)
@@ -157,15 +155,14 @@ The potential conclusion that can be drawn from the above visualization is that 
 
 The motivation behind this analysis was to test the hypothesis if the confirmed cases in the country were correlated with the strains present in the country.
 
-  a.
-### Methods
+  ### a. Methods
 
 - To weed out misspelled entries in COVID-19 counts dataset, the &quot;_country_&quot; attribute was subtracted from &quot;_country_&quot; in strain dataset. After finding possibly missing / wrongly spelled countries, **regular expression queries** were used to find the mapping of countries&#39; names between both the datasets. This also took care of the check if a country was missing in the COVID-19 counts dataset.
 - To parallelize the process of updating all the country names, a dictionary mapping incorrect name with the correct one was casted to a **broadcast**** variable **which can be shared by all the tasks. A** user defined function** to get the values from the broadcast variable was written and called to update the country attribute.
 - The counts data was grouped by _countries_ and the counts were aggregated to create a new data frame with country wise sum of _confirmed_, _death_s, _recovered_ and _active_ cases. This dataframe was **inner-joined** with the strains data upon the country column.
 
-  b.
-### Analysis
+  
+### b. Analysis
 
 - **Pearson correlation coefficient** was calculated to be 0.5857 for _strains contributed_ and _confirmed_ cases. This is not a strong correlation hence a relationship cannot be established between these attributes.
 - Below is the visual of the **scatter plot** for strains contributed by countries and confirmed cases in the country.
@@ -174,8 +171,8 @@ The motivation behind this analysis was to test the hypothesis if the confirmed 
 
 - There is no significant relationship between strains in the country and the confirmed cases as per the scatter plot above
 
-  c.
-### Result
+  
+### c. Result
 
 - The weak correlation signifies the lack of any relationship between strains contributed by the country and the number of infections
 - This could be due to various other factors such as lack of research investment by the governments of the countries, private research not publishing the genomes found or not enough tests being done and published to show real counts
@@ -183,32 +180,32 @@ The motivation behind this analysis was to test the hypothesis if the confirmed 
 # 1
  were considered in the dataset and this could have contributed to the lack of enough data to establish a relationship
 
-3.
-## Clustering strains
+
+## 3. Clustering strains
 
 The motivation behind this analysis was a research paper [2] published on bioRxiv about a speculation that the virus strain spreading in the west coast of the USA is less lethal than the one in east coast causing more deaths and severe symptoms. The idea was to study the lethality of each of the strains to classify them. This analysis could bolster the vaccine research helping scientists since individuals who have recovered could be susceptible to a mutant of the virus making vaccination a vain effort.
 
 A time series data analysis with the date when the sample was collected and the case counts after that could have served as a good study but the strains from USA were only available for the month of January when the case counts were in single digits in the country. Hence study was pivoted to cumulative analysis instead. This is still significant as these strains could be the parent strains of the ones currently active in the region.
 
-  a.
-### Methods
+  
+### a. Methods
 
-    1.
-#### Validating
+    
+#### 1. Validating
 
 - While validating the strains data, it was found that the highest detail about location was at county level for many strains but sufficiently enough records did not have that level of information. Hence the study was shifted to state level analysis to maintain uniformity.
 - Some strains collected by University of Washington Virology lab had state as &quot;USA&quot; and these records were disregarded from the study
 - After correcting the date strings for some entries, the date collected column was converted to date type. It was found that all strains collected in USA were only in the month of January 2020
 
-    2.
-#### Processing
+    
+#### 2. Processing
 
 - A new column called _category_ was created to classify the strains as older, mid and newer based on date strain was collected in the strains data
 - The _COVID-19 case counts_ and _strains_ data was inner-joined based on the state column in both
 - Using the Vector assembler package in spark ml lib the columns- _confirmed, deaths, recovered, active and category_ – were vectorised and added to a new column called _features_
 
-  b.
-### Analysis
+  
+### b. Analysis
 
 - Once the dataframe was cleaned, processed and features were vectorized, a decision had to be made of choosing a model for the data
 - **Kmeans** : Initially, Kmeans clustering model, from spark ML lib, was fit on the strains data to find similar strains but the clustering failed and resulted in insignificant classification. This could be attributed to the limitations of Kmeans clustering in context of the distribution of data points and presence of outliers in the data.
@@ -226,37 +223,37 @@ Below is the plot for the DBSCAN results:
 
 - It is clear that the distribution of the datapoints in DBSCAN is similar to GMM but the clustering is more diverse and informative. We can visually see the strains that are comparatively less lethal are in brown, mid-level is yellow and the blue seem to be relatively more lethal.
 
-  c.
-### Result
+  
+### c. Result
 
 Combining the results from DBSCAN and GMM, we could potentially claim that some strains spreading in the USA right now display different properties compared to others. Even though the results of the study could be skewed due to many other factors, the overall distribution of the strains and classification could point us to a direction. This result can be used by scientists to further probe into these strains protein composition to make other observations to support or disprove the claim.
 
-IV.
-# Challenges and lessons learnt
 
-1.
-## Challenges:
+# IV. Challenges and lessons learnt
+
+
+## 1. Challenges:
 
 - The first major challenge for me was that the previous knowledge I had about genetics was not sufficient to deeply understand the data and perform analysis. I referred to biomed scientific research papers and articles which was both interesting and challenging for me as a computer science student.
 - There were many inconsistencies in both the datasets and at each point when these were discovered, I had to **pivot the study** according to the data available
 - The idea behind joining the two datasets on country had led me to probe into the **spelling mistakes, missing country names and anomalies** like one of the datasets considering Hong Kong as a state in China. It took quite a bit of time and effort to find these and fix them. Even though the COVID-19 case counts dataset had a FIPS to ISO codes for countries, Strains data did not have it which complicated things.
 
-2.
-## Lessons learnt:
+
+## 2. Lessons learnt:
 
 - Running on a **hardware limitation of 16 GB** memory due to the limit on Databricks community version I learnt to rely on modifying the same dataframe instead of creating a new one each time to save memory. I also encountered memory issues while running DBSCAN clustering and adjusted the parameters to be memory efficient as well while delivering optimal clustering.
 
 - Knowing enough about the subject matter is very essential for data analysis
 
-V.
-# Conclusion
+
+# V. Conclusion
 
 The Novel Coronavirus strains analysis is a crucial step towards developing a vaccine and aiding decision making for governments all over the world. This study could have been proven with even better results if the data was richer and more labs all over the world actively contributed to the dataset. The lack of definite results in correlation between number of strains and confirmed cases in countries proves that not all countries are reporting numbers accurately and contributing to the greater good. Even though this is a proof by contradiction, more research could lead to conclusive results.
 
 The second half of the analysis of finding a deadlier strain could serve as an early warning against a stronger and deadlier mutant of Coronavirus. A protein level analysis of these strains could give more specific features of the virus that could cause it to be more dangerous.
 
-VI.
-# References
+
+# VI. References
 
 [1] Structure of a Data Analysis Report
  http://www.stat.cmu.edu/~brian/701/notes/paper-structure.pdf
@@ -285,20 +282,20 @@ VI.
 
 [13] CSSEGISandData data description [https://github.com/CSSEGISandData/COVID-19/tree/master/csse\_covid\_19\_data](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data)
 
-VII.
-# Appendix
+
+# VII. Appendix
 
 Link to the databricks code: https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/3847040375540205/1221180919542404/3031952302722608/latest.html
 
-1.
-## Acknowledgement:
+
+## 1. Acknowledgement:
 
 Strains dataset: I gratefully acknowledge the authors and researchers in originating and submitting labs of sequence data on which the analysis is based and GISAID for hosting and publishing the dataset.
 
 COVID-19 counts dataset: I gratefully acknowledge Center for Systems Science and Engineering (CSSE) at Johns Hopkins University for providing the data to support this analysis.
 
-2.
-## Data description:
+
+## 2. Data description:
 
 1. Strains data [12]
 
