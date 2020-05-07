@@ -9,61 +9,61 @@ Analysis of Novel Coronavirus strains |
 
 # Contents
 
-[I. Introduction 2](#_Toc39690119)
+[I. Introduction ](#_Toc39690119)
 
-[II. Data 2](#_Toc39690120)
+[II. Data ](#_Toc39690120)
 
-[1. Datasets description 2](#_Toc39690121)
+[1. Datasets description ](#_Toc39690121)
 
-[i) nCov strains dataset: 2](#_Toc39690122)
+[i) nCov strains dataset](#_Toc39690122)
 
-[ii) COVID-19 case counts dataset: 3](#_Toc39690123)
+[ii) COVID-19 case counts dataset](#_Toc39690123)
 
-[2) Validation and Cleaning 3](#_Toc39690124)
+[2) Validation and Cleaning ](#_Toc39690124)
 
-[3) Processing 3](#_Toc39690125)
+[3) Processing ](#_Toc39690125)
 
-[i) nCov strains dataset: 3](#_Toc39690126)
+[i) nCov strains dataset](#_Toc39690126)
 
-[iii) COVID-19 case counts dataset: 3](#_Toc39690127)
+[iii) COVID-19 case counts dataset](#_Toc39690127)
 
-[III. Analysis 3](#_Toc39690128)
+[III. Analysis ](#_Toc39690128)
 
-[1. Countries contributing strains for the study 3](#_Toc39690129)
+[1. Countries contributing strains for the study ](#_Toc39690129)
 
-[a. Methods 3](#_Toc39690130)
+[a. Methods ](#_Toc39690130)
 
-[b. Analysis 3](#_Toc39690131)
+[b. Analysis ](#_Toc39690131)
 
-[c. Result 4](#_Toc39690132)
+[c. Result ](#_Toc39690132)
 
-[2. Mutations vs case counts 4](#_Toc39690133)
+[2. Mutations vs case counts ](#_Toc39690133)
 
-[a. Methods 4](#_Toc39690134)
+[a. Methods ](#_Toc39690134)
 
-[b. Analysis 4](#_Toc39690135)
+[b. Analysis ](#_Toc39690135)
 
-[c. Result 5](#_Toc39690136)
+[c. Result ](#_Toc39690136)
 
-[3. Clustering strains 5](#_Toc39690137)
+[3. Clustering strains ](#_Toc39690137)
 
-[a. Methods 6](#_Toc39690138)
+[a. Methods ](#_Toc39690138)
 
-[b. Analysis 6](#_Toc39690139)
+[b. Analysis](#_Toc39690139)
 
-[c. Result 8](#_Toc39690140)
+[c. Result ](#_Toc39690140)
 
-[IV. Challenges and lessons learnt 8](#_Toc39690141)
+[IV. Challenges and lessons learnt ](#_Toc39690141)
 
-[1. Challenges: 8](#_Toc39690142)
+[1. Challenges](#_Toc39690142)
 
-[2. Lessons learnt: 8](#_Toc39690143)
+[2. Lessons learnt](#_Toc39690143)
 
-[V. Conclusion 8](#_Toc39690144)
+[V. Conclusion ](#_Toc39690144)
 
-[VI. References 9](#_Toc39690145)
+[VI. References](#_Toc39690145)
 
-[VII. Appendix 9](#_Toc39690146)
+[VII. Appendix ](#_Toc39690146)
 
 
 # I Introduction
